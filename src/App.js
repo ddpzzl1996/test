@@ -4,16 +4,10 @@ import './App.css';
 import http from "./serve"
 class App extends Component {
   async getlist() {
-    const res = await http.post("classroom/getTextLink", {
-      type: "1",
-      GAMEID: "38",
-      unionId: "84d2d5cb35264e35a17239a69f2e3f46",
-      timestamp: new Date().getTime(),
-      ciphertext_key: "30c3f43220a9501aa7b4e338a7771432",
-    })
+    const res = await http.get(`getjson.ashx?v=${new Date().getTime()}&m=GetProductAction&c=ItemCenter`)
     console.log(res);
   }
-  componentDidMount(){
+  componentDidMount() {
     this.getlist()
     console.log(http);
   }
